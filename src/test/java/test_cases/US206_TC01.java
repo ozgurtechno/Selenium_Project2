@@ -1,13 +1,15 @@
 package test_cases;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import utility.BaseDriver;
 
 import java.time.Duration;
@@ -15,18 +17,18 @@ import java.util.List;
 
 public class US206_TC01 extends BaseDriver {
     @Test
-    public void orderTest() {
+    @Parameters({"email", "password"})
+    public void orderTest(@Optional("ozgur@gmail.com") String email, @Optional("Qwerty12") String password) {
 
         driver.get("https://demowebshop.tricentis.com/");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        Actions action = new Actions(driver);
-        action.click(driver.findElement(By.cssSelector(".ico-login"))).perform();
-        action.sendKeys(driver.findElement(By.cssSelector("#Email")), "fastest91@gmail.com");
-        action.sendKeys(driver.findElement(By.cssSelector("#Password")), "Qwerty12");
-        action.click(driver.findElement(By.xpath("//input[@type='submit'][@value='Log in']")));
-        action.perform();
+        actions.click(driver.findElement(By.cssSelector(".ico-login"))).perform();
+        actions.sendKeys(driver.findElement(By.cssSelector("#Email")), email);
+        actions.sendKeys(driver.findElement(By.cssSelector("#Password")), password);
+        actions.click(driver.findElement(By.xpath("//input[@type='submit'][@value='Log in']")));
+        actions.perform();
 
         List<WebElement> itemTitlesList = driver.findElements(By.xpath("//h2[@class=\"product-title\"]"));
         for (WebElement webElement : itemTitlesList) {
@@ -65,8 +67,8 @@ public class US206_TC01 extends BaseDriver {
         checkOut.click();
 
         // second order
-        WebElement newAddressOption = driver.findElement(By.xpath("//select/option[text()='New Address']"));
-        newAddressOption.click();
+//        WebElement newAddressOption = driver.findElement(By.xpath("//select/option[text()='New Address']"));
+//        newAddressOption.click();
 
         WebElement countryDropdown = driver.findElement(By.id("BillingNewAddress_CountryId"));
         Select countrySelect = new Select(countryDropdown);
@@ -129,6 +131,6 @@ public class US206_TC01 extends BaseDriver {
         WebElement logOutBtn = driver.findElement(By.className("ico-logout"));
         logOutBtn.click();
 
-        delayQuit();
+        quitDriver();
     }
 }

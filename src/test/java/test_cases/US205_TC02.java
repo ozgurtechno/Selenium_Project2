@@ -1,7 +1,7 @@
 package test_cases;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import utility.BaseDriver;
@@ -12,27 +12,25 @@ public class US205_TC02 extends BaseDriver {
 
         driver.get("https://demowebshop.tricentis.com/");
 
-        Actions action = new Actions(driver);
-
-        String[] emailArray = {"", "fastest91@gmail.com", "", "invalid91@gmail.com", "fastest91@gmail.com"};
+        String[] emailArray = {"", "ozgur@gmail.com", "", "invalid91@gmail.com", "ozgur@gmail.com"};
         String[] passwordArray = {"", "", "Qwerty12", "invalidPwd12", "invalidPwd12"};
 
         try {
-            action.click(driver.findElement(By.cssSelector(".ico-logout"))).perform();
+            actions.click(driver.findElement(By.cssSelector(".ico-logout"))).perform();
         } catch (Exception e) {
             System.out.println("This step was skipped because there was no login.");
         }
 
         for (int i = 0; i < emailArray.length; i++) {
-            action.click(driver.findElement(By.cssSelector(".ico-login"))).perform();
-            action.sendKeys(driver.findElement(By.cssSelector("#Email")), emailArray[i]);
-            action.sendKeys(driver.findElement(By.cssSelector("#Password")), passwordArray[i]);
-            action.click(driver.findElement(By.xpath("//input[@type='submit'][@value='Log in']")));
-            action.perform();
+            actions.click(driver.findElement(By.cssSelector(".ico-login"))).perform();
+            actions.sendKeys(driver.findElement(By.cssSelector("#Email")), emailArray[i]);
+            actions.sendKeys(driver.findElement(By.cssSelector("#Password")), passwordArray[i]);
+            actions.click(driver.findElement(By.xpath("//input[@type='submit'][@value='Log in']")));
+            actions.perform();
             String result = driver.findElement(By.cssSelector(".validation-summary-errors > span")).getText();
             Assert.assertEquals("Login was unsuccessful. Please correct the errors and try again.", result);
         }
 
-        delayQuit();
+        quitDriver();
     }
 }

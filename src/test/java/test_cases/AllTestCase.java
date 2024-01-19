@@ -454,7 +454,7 @@ public class AllTestCase extends BaseDriver {
         String secondTabTitle = driver.getCurrentUrl();
         Assert.assertTrue(secondTabTitle.contains(orderNumber));
 
-        delayQuit();
+        quitDriver();
 
     }
 }
