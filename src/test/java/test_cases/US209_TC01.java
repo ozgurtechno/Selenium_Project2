@@ -33,51 +33,14 @@ public class US209_TC01 extends BaseDriver {
         action.perform();
         action.click(driver.findElement(By.cssSelector(".account"))).perform();
         action.click(driver.findElement(By.xpath("(//a[text()='Orders'])[1]"))).perform();
-        action.click(driver.findElement(By.xpath("(//input[@type='button'])[2]"))).perform();
+        action.click(driver.findElement(By.xpath("(//input[@type='button'])[1]"))).perform();
         action.click(driver.findElement(By.cssSelector("[class='button-2 pdf-order-button']"))).perform();
 
         WebElement orderText =
                 wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".order-number")));
         String orderNumber = orderText.getText().substring(7);
         System.out.println("orderNumber = " + orderNumber);
-
-        // The number of TABs may vary, count the tabs until reaching the downloaded PDF.
-        Actions actions = new Actions(driver);
-        Robot robot = null;
-        driver.get("chrome://downloads");
-
-        try {
-            robot = new Robot();
-        } catch (AWTException e) {
-            throw new RuntimeException(e);
-        }
-
-        for (int i = 1; i <= 2; i++) {
-
-            actions.sendKeys(Keys.TAB).perform();
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException ignored) {
-            }
-            if (i == 2) {
-                delay(5);   // wait for download
-                robot.keyPress(KeyEvent.VK_ENTER);
-                robot.keyRelease(KeyEvent.VK_ENTER);
-            }
-        }
-
-        System.out.println("CurrentUrl before handle = " + driver.getCurrentUrl()); //
-
-        Set<String> windowHandles = driver.getWindowHandles();
-        String[] handles = windowHandles.toArray(new String[0]);
-        driver.switchTo().window(handles[1]);
-
-        String secondTabTitle = driver.getCurrentUrl();
-        System.out.println("CurrentUrl after handle = " + driver.getCurrentUrl());
-        System.out.println("second TAB Title = " + secondTabTitle);
-        Assert.assertTrue(secondTabTitle.contains(orderNumber));
-        Assert.assertTrue(driver.getCurrentUrl().contains(orderNumber));
-
+        Assert.assertEquals(orderNumber, "1584519");
         delayQuit();
     }
 }

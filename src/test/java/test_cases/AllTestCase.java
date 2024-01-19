@@ -42,7 +42,7 @@ public class AllTestCase extends BaseDriver {
             Assert.assertEquals("Your registration completed", result);
             action.click(driver.findElement(By.cssSelector(".header-links > ul > li + li > a.ico-logout")));
         } catch (Exception e) {
-            System.out.println("Üyelik daha önce yapıldığından dolayı bu adımı geçebiliriz.");
+            System.out.println("No need to register... Already registered");
         }
     }
 

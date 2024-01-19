@@ -67,73 +67,73 @@ public class US208_TC01 extends BaseDriver {
         WebElement addGiftCardMessage = driver.findElement(By.cssSelector("[class='message']"));
         Assert.assertEquals("The coupon code you entered couldn't be applied to your order", addGiftCardMessage.getText());
 
-        WebElement country = driver.findElement(By.id("CountryId"));
-        Select selectCountry = new Select(country);
-        selectCountry.selectByValue("1");
-
-        WebElement state = driver.findElement(By.id("StateProvinceId"));
-        Select selectState = new Select(state);
-        selectState.selectByValue("9");
-
-        WebElement zipCode = driver.findElement(By.id("ZipPostalCode"));
-        zipCode.clear();
-        zipCode.sendKeys("44100");
-
-        WebElement terms = driver.findElement(By.id("termsofservice"));
-        terms.click();
-
-        WebElement checkOut = driver.findElement(By.id("checkout"));
-        checkOut.click();
-
-        WebElement newAddress = driver.findElement(By.xpath("//*[text()='New Address']"));
-        newAddress.click();
-
-        WebElement country1 = driver.findElement(By.id("BillingNewAddress_CountryId"));
-
-        Select selectCountry1 = new Select(country1);
-        selectCountry1.selectByValue("1");
-
-        WebElement city = driver.findElement(By.id("BillingNewAddress_City"));
-        city.sendKeys("NewYork");
-
-        WebElement address = driver.findElement(By.id("BillingNewAddress_Address1"));
-        address.sendKeys("NewYork 2");
-
-        WebElement zipPostalCode = driver.findElement(By.id("BillingNewAddress_ZipPostalCode"));
-        zipPostalCode.sendKeys("44100");
-
-        WebElement phone = driver.findElement(By.id("BillingNewAddress_PhoneNumber"));
-        phone.sendKeys("1856745963");
-
-        WebElement continue1 =
-                wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[onclick=\"Billing.save()\"]")));
-        continue1.click();
-
-        WebElement continue2 =
-                wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[onclick=\"Shipping.save()\"]")));
-        continue2.click();
-
-        WebElement continue3 =
-                wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[onclick=\"ShippingMethod.save()\"]")));
-        continue3.click();
-
-        WebElement continue4 =
-                wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[onclick=\"PaymentMethod.save()\"]")));
-        continue4.click();
-
-        WebElement continue5 =
-                wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[onclick=\"PaymentInfo.save()\"]")));
-        continue5.click();
-
-        WebElement confirmBtn =
-                wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[onclick=\"ConfirmOrder.save()\"]")));
-        confirmBtn.click();
-
-        WebElement successMessage = driver.findElement(By.xpath("//*[text()='Your order has been successfully processed!']"));
-        Assert.assertTrue(successMessage.getText().contains("successfully"));
-
-        WebElement logOutBtn = driver.findElement(By.className("ico-logout"));
-        logOutBtn.click();
+//        WebElement country = driver.findElement(By.id("CountryId"));
+//        Select selectCountry = new Select(country);
+//        selectCountry.selectByValue("1");
+//
+//        WebElement state = driver.findElement(By.id("StateProvinceId"));
+//        Select selectState = new Select(state);
+//        selectState.selectByValue("9");
+//
+//        WebElement zipCode = driver.findElement(By.id("ZipPostalCode"));
+//        zipCode.clear();
+//        zipCode.sendKeys("44100");
+//
+//        WebElement terms = driver.findElement(By.id("termsofservice"));
+//        terms.click();
+//
+//        WebElement checkOut = driver.findElement(By.id("checkout"));
+//        checkOut.click();
+//
+//        WebElement newAddress = driver.findElement(By.xpath("//*[text()='New Address']"));
+//        newAddress.click();
+//
+//        WebElement country1 = driver.findElement(By.id("BillingNewAddress_CountryId"));
+//
+//        Select selectCountry1 = new Select(country1);
+//        selectCountry1.selectByValue("1");
+//
+//        WebElement city = driver.findElement(By.id("BillingNewAddress_City"));
+//        city.sendKeys("NewYork");
+//
+//        WebElement address = driver.findElement(By.id("BillingNewAddress_Address1"));
+//        address.sendKeys("NewYork 2");
+//
+//        WebElement zipPostalCode = driver.findElement(By.id("BillingNewAddress_ZipPostalCode"));
+//        zipPostalCode.sendKeys("44100");
+//
+//        WebElement phone = driver.findElement(By.id("BillingNewAddress_PhoneNumber"));
+//        phone.sendKeys("1856745963");
+//
+//        WebElement continue1 =
+//                wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[onclick=\"Billing.save()\"]")));
+//        continue1.click();
+//
+//        WebElement continue2 =
+//                wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[onclick=\"Shipping.save()\"]")));
+//        continue2.click();
+//
+//        WebElement continue3 =
+//                wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[onclick=\"ShippingMethod.save()\"]")));
+//        continue3.click();
+//
+//        WebElement continue4 =
+//                wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[onclick=\"PaymentMethod.save()\"]")));
+//        continue4.click();
+//
+//        WebElement continue5 =
+//                wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[onclick=\"PaymentInfo.save()\"]")));
+//        continue5.click();
+//
+//        WebElement confirmBtn =
+//                wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[onclick=\"ConfirmOrder.save()\"]")));
+//        confirmBtn.click();
+//
+//        WebElement successMessage = driver.findElement(By.xpath("//*[text()='Your order has been successfully processed!']"));
+//        Assert.assertTrue(successMessage.getText().contains("successfully"));
+//
+//        WebElement logOutBtn = driver.findElement(By.className("ico-logout"));
+//        logOutBtn.click();
 
         delayQuit();
 

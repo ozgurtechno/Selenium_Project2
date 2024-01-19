@@ -64,6 +64,7 @@ public class US206_TC01 extends BaseDriver {
         WebElement checkOut = driver.findElement(By.id("checkout"));
         checkOut.click();
 
+        // second order
         WebElement newAddressOption = driver.findElement(By.xpath("//select/option[text()='New Address']"));
         newAddressOption.click();
 
