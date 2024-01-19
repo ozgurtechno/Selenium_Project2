@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/Users/ozgurtechno/IdeaProjects/Selenium_Project2">
+        <parameter name="email" value="ozgur347@gmail.com"></parameter>
+        <parameter name="password" value="Qwerty12"></parameter>
+        <parameter name="browserName" value="chrome"></parameter>
+        <classes>
+            <class name="test_cases.US201_TC01"></class>
+            <class name="test_cases.US202_TC01"></class>
+            <class name="test_cases.US203_TC01"></class>
+            <class name="test_cases.US204_TC01"></class>
+            <class name="test_cases.US205_TC01"></class>
+            <class name="test_cases.US205_TC02"></class>
+            <class name="test_cases.US206_TC01"></class>
+            <class name="test_cases.US207_TC01"></class>
+            <class name="test_cases.US208_TC01"></class>
+            <class name="test_cases.US209_TC01"></class>
+        </classes>
+    </test>
+</suite>
