@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="/Users/ozgurtechno/IdeaProjects/Selenium_Project2">
-        <parameter name="email" value="ozgur347@gmail.com"></parameter>
+        <parameter name="email" value="ozgur349@gmail.com"></parameter>
         <parameter name="password" value="Qwerty12"></parameter>
         <parameter name="browserName" value="chrome"></parameter>
         <classes>

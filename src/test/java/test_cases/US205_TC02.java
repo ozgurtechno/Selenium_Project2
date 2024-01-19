@@ -2,6 +2,8 @@ package test_cases;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import utility.BaseDriver;
@@ -25,7 +27,7 @@ public class US205_TC02 extends BaseDriver {
     public Object[][] credentials() {
         Object[][] credentialsArray = {
                 {"", ""},
-                {"ozgur@gmail.com", ""},
+                {"valid@gmail.com", ""},
                 {"", "Qwerty12"},
                 {"invalid91@gmail.com", "invalidPwd12"}
         };
